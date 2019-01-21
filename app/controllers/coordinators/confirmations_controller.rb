@@ -26,6 +26,6 @@ class Coordinators::ConfirmationsController < Devise::ConfirmationsController
   # The path used after confirmation.
   def after_confirmation_path_for(resource_name, resource)
     sign_in(resource) # In case you want to sign in the user
-    root_path
+    coordinators_dashboard_index_path
   end
 end
