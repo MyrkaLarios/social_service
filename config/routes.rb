@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   root 'landing_page#index'
+
   devise_for :coordinators, controllers: {
     sessions: "coordinators/sessions",
     registrations: "coordinators/registrations",
@@ -14,5 +15,10 @@ Rails.application.routes.draw do
     confirmations: "students/confirmations",
     passwords: "students/passwords"
   }
+
+  namespace :students do
+    resources :dashboard, only: [:index]
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
