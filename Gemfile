@@ -8,10 +8,12 @@ gem "rails", "~> 5.2.1"
 gem "mysql2", ">= 0.4.4", "< 0.6.0"
 
 gem "bootsnap", ">= 1.1.0", require: false
+gem 'bootstrap', '~> 4.2.1'
 gem "devise"
 gem "devise-i18n"
 gem "haml-rails"
 gem "interactor-rails"
+gem 'jquery-rails'
 gem "kaminari"
 gem "puma", "~> 3.11"
 gem "sass-rails", "~> 5.0"
@@ -26,6 +28,7 @@ gem "webpacker"
 gem "minitest-rails", group: [:development, :test]
 
 group :development, :test do
+  gem 'annotate'
   gem "awesome_print"
   gem "pry"
   gem "rubocop-rails_config"
