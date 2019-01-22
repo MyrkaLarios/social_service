@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'landing_page#index'
+  root "landing_page#index"
 
   devise_for :coordinators, controllers: {
     sessions: "coordinators/sessions",
