@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_21_222957) do
+ActiveRecord::Schema.define(version: 2019_02_05_060002) do
 
   create_table "coordinators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_01_21_222957) do
 
   create_table "options", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
+    t.boolean "correct"
     t.bigint "question_id"
     t.index ["question_id"], name: "index_options_on_question_id"
   end
@@ -56,6 +57,14 @@ ActiveRecord::Schema.define(version: 2019_01_21_222957) do
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end
 
+  create_table "units", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "unit"
+    t.string "name"
+    t.bigint "question_id"
+    t.index ["question_id"], name: "index_units_on_question_id"
+  end
+
   add_foreign_key "options", "questions"
   add_foreign_key "questions", "coordinators"
+  add_foreign_key "units", "questions"
 end

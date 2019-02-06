@@ -9,6 +9,7 @@ gem "mysql2", ">= 0.4.4", "< 0.6.0"
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem 'bootstrap', '~> 4.2.1'
+gem "cocoon"
 gem "devise"
 gem "devise-i18n"
 gem "haml-rails"
