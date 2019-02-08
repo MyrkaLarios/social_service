@@ -1,13 +1,20 @@
 # frozen_string_literal: true
 
 class Coordinators::QuestionsController < Coordinators::CoordinatorsApplicationController
+  def index
+    @questions = Question.all
+  end
+
   def new
     @question = Question.new
     3.times { @question.options.new }
   end
 
   def create
-    binding.pry
+    @question = current_coordinator.questions.create(question_params)
+    if @question.persisted?
+      redirect_to coordinators_questions_path
+    end
   end
 
   private
